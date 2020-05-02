@@ -1,0 +1,53 @@
+server:
+  #context-path: /demo #项目的根路径默认localhost:8080修改默认的访问路径为localhost:8080/demo(2.0以下版本)
+  tomcat:
+    uri-encoding: utf-8
+spring:
+  profiles:
+    active: dev
+  datasource:
+    #druid连接池
+    type: com.alibaba.druid.pool.DruidDataSource
+    filters: stat # 配置监控统计拦截的filters，去掉后监控界面sql无法统计,wall用于防火墙
+    # 初始化大小，最小，最大
+    initialSize: 1
+    minIdle: 2
+    maxActive: 20
+    maxWait: 60000 # 配置获取连接等待超时的时间
+    timeBetweenEvictionRunsMillis: 60000 # 配置间隔多久才进行一次检测,检测需要关闭的空闲连接
+    minEvictableIdleTimeMillis: 30000 # 配置一个连接在池中最小生存的时间，单位是毫秒
+    validationQuery: SELECT 1 #处理error testWhileIdle is true, validationQuery not set
+  jpa:
+    #show-sql: true
+    hibernate:
+      ddl-auto: update
+---
+server:
+  port: 8082
+spring:
+  profiles: dev
+  datasource:
+    driver-class-name: com.microsoft.sqlserver.jdbc.SQLServerDriver
+    url: jdbc:sqlserver://localhost:1433;DatabaseName=dq_work
+    username: sa
+    password: www.123.com
+
+---
+spring:
+  profiles: pro
+  datasource:
+    driver-class-name: com.microsoft.sqlserver.jdbc.SQLServerDriver
+    url: jdbc:sqlserver://192.168.1.2:1433;DatabaseName=SYSTEM
+    username: sa
+    password: www.123.com
+    #配置日志
+    #logging:
+    #配置日志文件路径
+    #path: D:/Goole
+    #该属性用来配置日志文件名，如果该属性不配置，默认文件名为spring.log
+    #file: logback.log
+    #level:
+    #com.mf包下所有class以DEBUG级别输出
+    #com.mf: DEBUG
+    # root日志以info级别输出
+    #root: info #日志级别

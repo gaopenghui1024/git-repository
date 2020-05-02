@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<service name="HelloService">
+    <description>
+        Web Service测试
+    </description>
+    <!--接口实现类-->
+    <parameter name="ServiceClass"  locked="false">
+        com.work.iwms.webservice.axis2service.impl.UserServiceImpl2
+    </parameter>
+    <messageReceivers>
+        <messageReceiver mep="http://www.w3.org/2004/08/wsdl/in-out"
+                         class="org.apache.axis2.rpc.receivers.RPCMessageReceiver" />
+        <messageReceiver mep="http://www.w3.org/2004/08/wsdl/in-only"
+                         class="org.apache.axis2.rpc.receivers.RPCInOnlyMessageReceiver" />
+    </messageReceivers>
+</service>
