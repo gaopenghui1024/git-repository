@@ -3,6 +3,9 @@
     <description>
         Web Service测试
     </description>
+    <transportReceiver name="https" class="org.apache.axis2.transport.http.AxisServletListener">
+        <parameter name="port">443</parameter>
+    </transportReceiver>
     <!--接口实现类-->
     <parameter name="ServiceClass"  locked="false">
         com.work.iwms.webservice.axis2service.impl.UserServiceImpl2

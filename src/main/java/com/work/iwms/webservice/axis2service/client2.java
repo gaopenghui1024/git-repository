@@ -14,6 +14,7 @@ import org.apache.axis2.addressing.EndpointReference;
 import org.apache.axis2.client.Options;
 import org.apache.axis2.client.ServiceClient;
 import org.apache.axis2.rpc.client.RPCServiceClient;
+import org.apache.axis2.transport.http.HttpTransportProperties;
 
 import java.rmi.RemoteException;
 
@@ -148,7 +149,10 @@ public class client2 {
     public  void testCodeClient() {
         try {
             HelloServiceStub stub = new HelloServiceStub(url);
-            addValidation(stub._getServiceClient(),tns,Username,Password);
+            HttpTransportProperties.ProxyProperties auth = new HttpTransportProperties.ProxyProperties();
+            auth.setUserName("static/admin");
+            auth.setPassWord("123456");
+           // addValidation(stub._getServiceClient(),tns,Username,Password);
             GetHello request = new GetHello();
             request.setName("Gene");
             GetHelloResponse response = stub.getHello(request);

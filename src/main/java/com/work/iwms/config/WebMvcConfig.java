@@ -13,7 +13,7 @@ import com.alibaba.fastjson.support.config.FastJsonConfig;
 import com.alibaba.fastjson.support.spring.FastJsonHttpMessageConverter;
 /**
  * json配置
- * @author K
+ * @author Gene
  *
  */
 @Configuration

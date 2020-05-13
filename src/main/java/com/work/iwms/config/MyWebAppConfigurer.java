@@ -7,7 +7,7 @@ import org.springframework.web.servlet.config.annotation.WebMvcConfigurerAdapter
 /**
  * 跨域访问配置
  * 
- * @author K
+ * @author Gene
  *
  */
 @Configuration

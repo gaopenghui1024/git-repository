@@ -10,6 +10,9 @@ import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import javax.xml.ws.Endpoint;
 
+/**
+ * @author Gene
+ */
 @Configuration
 public class CXFConfig {
     @Autowired
